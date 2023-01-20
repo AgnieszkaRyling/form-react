@@ -40,6 +40,40 @@ const Form = () => {
     }
   };
 
+  const validateInputFirstName = (e) => {
+    if (!e.target.value) {
+      setErrorInputFirstName("This field is required");
+    }
+  };
+
+  const validateInputLastName = (e) => {
+    if (!e.target.value) {
+      setErrorInputLastName("This field is requred");
+    }
+  };
+
+  const validateInputMail = (e) => {
+    if (!e.target.value) {
+      setErrorInputMail("This field is required");
+    }
+  };
+
+  const validateInputPassword = (e) => {
+    if (!e.target.value) {
+      setErrorInputPassword("This field is required");
+    }
+  };
+
+  const validateInputPasswordRepeat = (e) => {
+    if (!e.target.value) {
+      setErrorInputPasswordRepeat("This field is required");
+    } else if (e.target.value !== valueInputPassword) {
+      setErrorInputPasswordRepeat("Passwords do not match");
+    } else {
+      setErrorInputPasswordRepeat("");
+    }
+  };
+
   return (
     <form className="form">
       <h1 className="h1-text">Fill in to register</h1>
@@ -47,7 +81,10 @@ const Form = () => {
         <input
           type="text"
           placeholder="First Name"
-          onChange={(e) => setValueInputFirstName(e.target.value)}
+          onChange={(e) => {
+            setValueInputFirstName(e.target.value);
+            validateInputFirstName(e);
+          }}
         />
         {errorInputFirstName && <p className="error">{errorInputFirstName}</p>}
       </div>
@@ -55,7 +92,10 @@ const Form = () => {
         <input
           type="text"
           placeholder="Last Name"
-          onChange={(e) => setValueInputLastName(e.target.value)}
+          onChange={(e) => {
+            setValueInputLastName(e.target.value);
+            validateInputLastName(e);
+          }}
         />
         {errorInputLastName && <p className="error">{errorInputLastName}</p>}
       </div>
@@ -63,7 +103,10 @@ const Form = () => {
         <input
           type="text"
           placeholder="Email"
-          onChange={(e) => setValueInputMail(e.target.value)}
+          onChange={(e) => {
+            setValueInputMail(e.target.value);
+            validateInputMail(e);
+          }}
         />
         {errorInputMail && <p className="error">{errorInputMail}</p>}
       </div>
@@ -71,7 +114,10 @@ const Form = () => {
         <input
           type="password"
           placeholder="Pasword"
-          onChange={(e) => setValueInputPassword(e.target.value)}
+          onChange={(e) => {
+            setValueInputPassword(e.target.value);
+            validateInputPassword(e);
+          }}
         />
         {errorInputPassword && <p className="error">{errorInputPassword}</p>}
       </div>
@@ -79,7 +125,10 @@ const Form = () => {
         <input
           type="password"
           placeholder="Repeat Password"
-          onChange={(e) => setValueInputPasswordRepeat(e.target.value)}
+          onChange={(e) => {
+            setValueInputPasswordRepeat(e.target.value);
+            validateInputPasswordRepeat(e);
+          }}
         />
         {errorInputPasswordRepeat && (
           <p className="error">{errorInputPasswordRepeat}</p>
