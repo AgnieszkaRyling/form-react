@@ -43,3 +43,8 @@ input:focus {
 .mb-30 {
   margin-bottom: 30px;
 }
+
+.error {
+  color: #ff0000;
+  padding: 5px;
+}
